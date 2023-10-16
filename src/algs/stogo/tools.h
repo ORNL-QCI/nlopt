@@ -36,12 +36,12 @@ public:
   friend ostream & operator << (ostream &, RCTrial) ;
 };
 
-class TrialGT : public unary_function<Trial, bool>
+class TrialGT
 // Predicate for Trial (needed for remove_if)
 {
 public:
   explicit TrialGT(double val) : _val(val) {}
-  bool operator()(Trial& foo) { 
+  bool operator()(Trial& foo) {
     return foo.objval > _val;
   }
 private:
@@ -95,7 +95,7 @@ public:
   list<Trial>::const_iterator LastTrial();
 
   void GetTrial(list<Trial>::const_iterator, Trial&);
-  void ClearBox();            
+  void ClearBox();
   bool CloseToMin(RVector&, double*, double);
 
   unsigned int NStationary();      // Returns the number of stationary points
